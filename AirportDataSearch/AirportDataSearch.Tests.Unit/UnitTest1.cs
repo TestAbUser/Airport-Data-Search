@@ -8,8 +8,10 @@ namespace AirportDataSearch.Tests.Unit
         public void Test1()
         {
             var file = new Mock<IFileSystem>();
+            var display = new Mock<IDisplay>();
+            var sut = new Search(file.Object, display.Object);
 
-            var sut = new Search(file.Object);
+
 
         }
     }
