@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace AirportDataSearch
 {
-    public interface IFileSystem
+    public class FileSystem
     {
-        List<object[]> ReadFile(string path);
     }
 }

@@ -19,9 +19,15 @@ namespace AirportDataSearch
             _display = display;
         }
 
-        public void Find()
+        public List<string[]> Find(string searchedLine)
         {
+            return new List<string[]>();
 
         }
+
+        //private string[] ParseCsv()
+        //{
+
+        //}
     }
 }
