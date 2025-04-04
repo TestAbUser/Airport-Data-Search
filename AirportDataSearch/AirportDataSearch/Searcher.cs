@@ -6,17 +6,22 @@ using System.Threading.Tasks;
 
 namespace AirportDataSearch
 {
-    public class Search
+    public class Searcher
     {
         private readonly IFileSystem _file;
-        private readonly IDisplay _display;
+        private readonly IView _display;
 
-        public Search(IFileSystem file, IDisplay display)
+        public Searcher(IFileSystem file, IView display)
         {
             ArgumentNullException.ThrowIfNull(file, nameof(file));
             ArgumentNullException.ThrowIfNull(display, nameof(display));
             _file = file;
             _display = display;
+        }
+
+        public void Find()
+        {
+
         }
     }
 }

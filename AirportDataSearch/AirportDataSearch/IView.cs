@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AirportDataSearch
 {
-    public interface IDisplay
+    public interface IView
     {
         void Display();
     }
