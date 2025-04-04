@@ -9,7 +9,7 @@ namespace AirportDataSearch.Tests.Unit
         {
             var file = new Mock<IFileSystem>();
 
-            //var sut = new Search(file.Object);
+            var sut = new Search(file.Object);
 
         }
     }
