@@ -1,4 +1,6 @@
-﻿using Moq;
+﻿//using Microsoft.VisualStudio.TestPlatform.TestHost;
+using Moq;
+using AirportDataSearch;
 
 namespace AirportDataSearch.Tests.Unit
 {
@@ -48,6 +50,9 @@ namespace AirportDataSearch.Tests.Unit
 
             displayer.Setup(x => x.Display(lines));
 
+            displayer.Object.Display(lines);
+
+            displayer.Verify(x => x.Display(lines), Times.Once);
         }
     }
 }
