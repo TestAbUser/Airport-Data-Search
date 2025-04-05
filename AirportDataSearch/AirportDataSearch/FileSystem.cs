@@ -10,7 +10,6 @@ namespace AirportDataSearch
     {
         //private readonly string _path;
 
-        public required string Path { get; init;}
         public string[] ReadLines(string path)
         {
             ArgumentException.ThrowIfNullOrEmpty(path, nameof(path));
