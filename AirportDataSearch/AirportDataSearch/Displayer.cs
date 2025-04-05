@@ -8,7 +8,7 @@ namespace AirportDataSearch
 {
     public class Displayer : IView
     {
-        public void Display(string[] lines)
+        public void Show(string[] lines)
         {
             foreach (var line in lines)
             {

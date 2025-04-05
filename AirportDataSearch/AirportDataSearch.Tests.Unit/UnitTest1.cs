@@ -19,7 +19,7 @@ namespace AirportDataSearch.Tests.Unit
               //  ["7","Narsarsuaq Airport","Narssarssuaq"]
                 );
 
-            var sut = new Searcher(file.Object, display.Object);
+            var sut = new Searcher(file.Object);
 
             var result = sut.Find(Line);
 
@@ -48,15 +48,11 @@ namespace AirportDataSearch.Tests.Unit
             var displayer = new Mock<IView>();
             string[] lines = ["test1", "test2"];
 
-            displayer.Setup(x => x.Display(lines));
+            displayer.Setup(x => x.Show(lines));
 
-            displayer.Object.Display(lines);
+            displayer.Object.Show(lines);
 
-            displayer.Verify(x => x.Display(lines), Times.Once);
+            displayer.Verify(x => x.Show(lines), Times.Once);
         }
     }
 }
-
-
-
-

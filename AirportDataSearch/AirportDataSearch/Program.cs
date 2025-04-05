@@ -12,7 +12,7 @@ namespace AirportDataSearch
             var result = fileSystem.ReadLines(path);
             IView displayer = new Displayer();
 
-            displayer.Display(result);
+            displayer.Show(result);
 
             Console.ReadLine();
             //Searcher searcher = new Searcher()
