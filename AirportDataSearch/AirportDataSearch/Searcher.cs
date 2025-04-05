@@ -27,7 +27,9 @@ namespace AirportDataSearch
 
         //private string[] ParseCsv()
         //{
+        //    _file.ReadLines(_file.Path);
 
+        //    return _file.ReadLines(_file.Path);
         //}
     }
 }

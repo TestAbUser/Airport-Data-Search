@@ -8,6 +8,7 @@ namespace AirportDataSearch
 {
     public interface IFileSystem
     {
-        List<object[]> ReadFile(string path);
+        string Path { get; init; }
+        string[] ReadLines(string path);
     }
 }
