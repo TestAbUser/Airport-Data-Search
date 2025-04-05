@@ -8,25 +8,16 @@ namespace AirportDataSearch
 {
     public class Searcher
     {
-        private readonly IFileSystem _file;
-
-        public Searcher(IFileSystem file)
-        {
-            ArgumentNullException.ThrowIfNull(file, nameof(file));
-            _file = file;
-        }
-
-        public List<string[]> Find(string searchedLine)
+        public List<string[]> Find(string searchString, string[] fileContent)
         {
             return new List<string[]>();
 
         }
 
-        //private string[] ParseCsv()
-        //{
-        //    _file.ReadLines(_file.Path);
+        private List<string[]> ParseFileContent(string[] fileContent)
+        {
 
-        //    return _file.ReadLines(_file.Path);
-        //}
+            return  new List<string[]>();
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace AirportDataSearch.Tests.Unit
         [Fact]
         public void Matching_results_are_displayed_for_the_searched_value()
         {
-            const string Line = "bo";
+            const string Line = "go";
             const string Path = "test";
             var file = new Mock<IFileSystem>();
             var display = new Mock<IView>();
@@ -19,11 +19,11 @@ namespace AirportDataSearch.Tests.Unit
               //  ["7","Narsarsuaq Airport","Narssarssuaq"]
                 );
 
-            var sut = new Searcher(file.Object);
+            var sut = new Searcher();
 
-            var result = sut.Find(Line);
+            var result = sut.Find(Line, file.Object.ReadLines(Path));
 
-            // Assert.Equal([["7", "Narsarsuaq Airport", "Narssarssuaq"]], result);
+             Assert.Equal([["7", "Narsarsuaq Airport", "Narssarssuaq"]], result);
         }
 
         [Fact]
