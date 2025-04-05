@@ -8,6 +8,6 @@ namespace AirportDataSearch
 {
     public interface IView
     {
-        void Display();
+        void Display(string[] lines);
     }
 }

@@ -39,5 +39,19 @@ namespace AirportDataSearch.Tests.Unit
 
             file.Verify(x=>x.ReadLines(Path), Times.Once);
         }
+
+        [Fact]
+        public void Display_found_values()
+        {
+            var displayer = new Mock<IView>();
+            string[] lines = ["test1", "test2"];
+
+            displayer.Setup(x => x.Display(lines));
+
+        }
     }
 }
+
+
+
+
