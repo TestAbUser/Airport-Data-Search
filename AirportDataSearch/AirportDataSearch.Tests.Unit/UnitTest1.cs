@@ -59,7 +59,16 @@ namespace AirportDataSearch.Tests.Unit
         [Fact]
         public void Repeat_search_until_user_quits()
         {
+            string[] lines = ["test1", "test2"];
+            string quitCommand = "quit";
+            Program program = new Program();
+            var searcher = new Mock<ISearch>();
+            program.StartSearch(quitCommand);
+           // var displayer = new Mock<IView>();
 
+          //  displayer.Run(quitCommand);
+
+            searcher.Verify(x => x.Find(quitCommand, lines), Times.Never);
         }
     }
 }

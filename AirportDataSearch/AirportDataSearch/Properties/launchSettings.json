@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "AirportDataSearch": {
+      "commandName": "Project",
+      "commandLineArgs": "2"
+    }
+  }
+}

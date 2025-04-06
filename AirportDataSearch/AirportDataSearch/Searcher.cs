@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace AirportDataSearch
 {
-    public class Searcher
+    public class Searcher: ISearch
     {
-        public int ColumnIndex { get; init; }
+        public int ColumnIndex { get; set; }
         public IOrderedEnumerable<IGrouping<string,string>> Find(
-            string searchString, string[] fileContent)
+            string? searchString, string[] fileContent)
         {
             var parsedFile = ParseFileContent(fileContent);
             var result = parsedFile.Where(x =>
