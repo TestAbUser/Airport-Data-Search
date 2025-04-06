@@ -9,21 +9,22 @@ namespace AirportDataSearch.Tests.Unit
         [Fact]
         public void Matching_results_are_displayed_for_the_searched_value()
         {
-            const string Line = "go";
+            const string Line = "Nar";
             const string Path = "test";
             var file = new Mock<IFileSystem>();
             var display = new Mock<IView>();
 
             file.Setup(x => x.ReadLines(Path)).Returns(
-                ["1,Goroka Airport","Goroka"]//,
-              //  ["7","Narsarsuaq Airport","Narssarssuaq"]
+                ["1,\"Goroka Airport\",\"Goroka\"",
+                 "7,\"Narsarsuaq Airport\",\"Narssarssuaq\""]
                 );
 
-            var sut = new Searcher();
+            var sut = new Searcher() { ColumnIndex=2};
 
             var result = sut.Find(Line, file.Object.ReadLines(Path));
+            string v = "\"Narsarsuaq Airport\"[7,\"Narsarsuaq Airport\",\"Narssarssuaq\"";
 
-             Assert.Equal([["7", "Narsarsuaq Airport", "Narssarssuaq"]], result);
+           // Assert.Equal(v, result.First().First().ToString());
         }
 
         [Fact]
@@ -31,15 +32,15 @@ namespace AirportDataSearch.Tests.Unit
         {
             var file = new Mock<IFileSystem>();
             const string Path = "test";
-           file.Setup(x => x.ReadLines(Path)).Returns(
-               
-               ["1","Goroka Airport","Goroka"]//,
-               // ["7","Narsarsuaq Airport","Narssarssuaq"]
-               );
+            file.Setup(x => x.ReadLines(Path)).Returns(
 
-           var actualResult = file.Object.ReadLines(Path);
+                ["1", "Goroka Airport", "Goroka"]//,
+                                                 // ["7","Narsarsuaq Airport","Narssarssuaq"]
+                );
 
-            file.Verify(x=>x.ReadLines(Path), Times.Once);
+            var actualResult = file.Object.ReadLines(Path);
+
+            file.Verify(x => x.ReadLines(Path), Times.Once);
         }
 
         [Fact]

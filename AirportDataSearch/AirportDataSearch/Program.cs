@@ -10,6 +10,9 @@ namespace AirportDataSearch
 
             IFileSystem fileSystem = new FileSystem();
             var result = fileSystem.ReadLines(path);
+            Searcher searcher = new Searcher() { ColumnIndex=2};
+            searcher.Find("Bo", result);
+
             IView displayer = new Displayer();
 
             displayer.Show(result);
