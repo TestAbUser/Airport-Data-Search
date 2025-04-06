@@ -55,5 +55,11 @@ namespace AirportDataSearch.Tests.Unit
 
             displayer.Verify(x => x.Show(lines), Times.Once);
         }
+
+        [Fact]
+        public void Repeat_search_until_user_quits()
+        {
+
+        }
     }
 }

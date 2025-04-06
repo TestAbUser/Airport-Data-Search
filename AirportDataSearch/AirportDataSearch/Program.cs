@@ -4,18 +4,21 @@ namespace AirportDataSearch
 {
     public static class Program
     {
-        public static void Main(string[]?args)
+        public static void Main(string[]args)
         {
             string path = Path.Combine(Environment.CurrentDirectory, "airports.dat");
 
             IFileSystem fileSystem = new FileSystem();
-            var result = fileSystem.ReadLines(path);
-            Searcher searcher = new Searcher() { ColumnIndex=2};
-            searcher.Find("Bo", result);
+
+            _= int.TryParse(args[0], out int result);
+            Searcher searcher = new() { ColumnIndex = result};
+
+            var lines = fileSystem.ReadLines(path);
+            searcher.Find("Bo", lines);
 
             IView displayer = new Displayer();
 
-            displayer.Show(result);
+            displayer.Show(lines);
 
             Console.ReadLine();
             //Searcher searcher = new Searcher()
