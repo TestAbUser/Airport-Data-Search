@@ -21,6 +21,7 @@ namespace AirportDataSearch
             //To Do: check that command line parameter not bigger than number of columns
             int commandLineParameter= int.Parse(args[0]);
             _searcher!.ColumnIndex = commandLineParameter;
+          //  _searcher.ParseFile(GetFileContent());
            // Searcher searcher = new() { ColumnIndex = commandLineParameter};
 
            // IFileSystem fileSystem = new FileSystem();
@@ -37,7 +38,7 @@ namespace AirportDataSearch
            return  _file!.ReadLines(path);
         }
 
-        string[] file = GetFileContent();
+        Lookup<string,string> file = _searcher!.ParseFile(GetFileContent());
 
        public void StartSearch(string searchedString)
         {

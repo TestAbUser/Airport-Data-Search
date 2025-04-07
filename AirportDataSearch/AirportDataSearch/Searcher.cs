@@ -6,9 +6,9 @@ namespace AirportDataSearch
     {
         public int ColumnIndex { get; set; }
         public IOrderedEnumerable<IGrouping<string, string>> Find(
-            string searchString, ref string[] fileContent)
+            string searchString, ref Lookup<string, string> fileContent/*string[] fileContent*/)
         {
-            var parsedFile = ParseFileContent(fileContent);
+            var parsedFile = fileContent;//ParseFile(fileContent);
             if (parsedFile.First().Key.StartsWith("\""))
                 searchString = "\"" + searchString;
             var result = parsedFile.Where(x => x.Key.StartsWith(
@@ -18,7 +18,7 @@ namespace AirportDataSearch
             return result;
         }
 
-        private Lookup<string, string> ParseFileContent(string[] fileContent)
+        public Lookup<string, string> ParseFile(string[] fileContent)
         {
             Lookup<string, string> result =
                 (Lookup<string, string>)fileContent.ToLookup(x =>
