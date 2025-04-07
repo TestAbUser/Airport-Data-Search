@@ -60,7 +60,7 @@ namespace AirportDataSearch.Tests.Unit
         public void Repeat_search_until_user_quits()
         {
             string[] lines = ["test1", "test2"];
-            string quitCommand = "quit";
+            string quitCommand = "!quit";
             Program program = new Program();
             var searcher = new Mock<ISearch>();
             program.StartSearch(quitCommand);

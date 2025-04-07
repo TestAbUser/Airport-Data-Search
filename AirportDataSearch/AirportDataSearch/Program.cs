@@ -1,4 +1,5 @@
 ﻿using AirportDataSearch;
+using System.Diagnostics;
 using System.IO;
 
 namespace AirportDataSearch
@@ -6,9 +7,9 @@ namespace AirportDataSearch
     public class Program
     {
         private static readonly Searcher? _searcher=  new Searcher() ;
-        private static readonly IFileSystem? _file = new FileSystem();
-
-       static string path = Path.Combine(Environment.CurrentDirectory, "airports.dat");
+        private static IFileSystem? _file = new FileSystem();
+       private static Stopwatch sw = Stopwatch.StartNew();
+        static string path = Path.Combine(Environment.CurrentDirectory, "airports.dat");
 
         public Program()
         { }
@@ -17,7 +18,7 @@ namespace AirportDataSearch
         {
             Console.OutputEncoding = System.Text.Encoding.Unicode;
             
-
+            //To Do: check that command line parameter not bigger than number of columns
             _= int.TryParse(args[0], out int result);
             _searcher!.ColumnIndex = result;
            // Searcher searcher = new() { ColumnIndex = result};
@@ -26,28 +27,28 @@ namespace AirportDataSearch
            // var lines = fileSystem.ReadLines(path);
 
        Program program = new Program(); 
-
-           program.StartSearch(GetSearchInput());
-        
-
-           // IView displayer = new Displayer();
-
-           // displayer.Show(lines);
-
-            Console.ReadLine();
-            //Searcher searcher = new Searcher()
+            
+            
+         program.StartSearch(GetSearchInput());
         }
 
         private static string[] GetFileContent()
         {
-           return _file!.ReadLines(path);
+           return  _file!.ReadLines(path);
         }
+
+        string[] file = GetFileContent();
 
        public void StartSearch(string? searchedString)
         {
             while (searchedString != "!quit")
             {
-                _searcher?.Find(searchedString, GetFileContent());
+                sw.Start();
+                var searchResult =_searcher!.Find(searchedString, ref file);
+                sw.Stop();
+                IView displayer = new Displayer();
+                displayer.Show(searchResult, sw);
+                sw.Reset();
                 searchedString = GetSearchInput();
             }
         }

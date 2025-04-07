@@ -11,22 +11,12 @@ namespace AirportDataSearch
     {
         public int ColumnIndex { get; set; }
         public IOrderedEnumerable<IGrouping<string,string>> Find(
-            string? searchString, string[] fileContent)
+            string? searchString, ref string[] fileContent)
         {
             var parsedFile = ParseFileContent(fileContent);
             var result = parsedFile.Where(x =>
              x.Key.StartsWith("\""+searchString)).OrderBy(x=>x.Key);
-            //foreach (var value in res)
-            //{
-            //    foreach (var item in value)
-            //    {
-            //        Console.Write($"{value.Key} ");
-            //        Console.WriteLine($"[{item}]");
-            //    }
-            //}
-            
-            //Console.WriteLine(res.Count());
-           // Console.WriteLine(sw.Elapsed.Milliseconds);
+
            return result;
         }
 
