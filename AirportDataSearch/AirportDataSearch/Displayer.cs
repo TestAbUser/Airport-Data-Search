@@ -21,8 +21,8 @@ namespace AirportDataSearch
                 }
             }
 
-            Console.WriteLine(res.Count());
-            Console.WriteLine(sw.Elapsed.Milliseconds);
+            Console.WriteLine($"Количество найденных строк: {res.Count()}");
+            Console.WriteLine($"Время затраченное на поиск: {sw.Elapsed.Milliseconds} мс.");
             Console.WriteLine();
         }
     }
