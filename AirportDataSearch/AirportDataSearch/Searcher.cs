@@ -11,12 +11,9 @@ namespace AirportDataSearch
             ref IOrderedEnumerable<IGrouping<string, string>> fileContent/*string[] fileContent*/)
         {
             var parsedFile = fileContent;//ParseFile(fileContent);
-            if (parsedFile.First().Key.StartsWith("\""))
-                searchString = "\"" + searchString;
-            var result = parsedFile.Where(x => x.Key.StartsWith(
-                searchString, ignoreCase: true, culture: CultureInfo.CurrentCulture));
-                //.OrderBy(x => x.Key);
-
+            var result = parsedFile.Where(
+                x => Regex.IsMatch(x.Key, "^\"?" + 
+                Regex.Escape(searchString), RegexOptions.IgnoreCase));
             return result;
         }
 
