@@ -9,16 +9,16 @@ namespace AirportDataSearch
 {
     public class Displayer : IView
     {
-        public void Show(IOrderedEnumerable<IGrouping<string, string>> res, 
+        public void Show(IOrderedEnumerable<IGrouping<string, string>> foundLines, 
             Stopwatch sw)
         {
             int count = 0;
-            foreach (var value in res)
+            foreach (var line in foundLines)
             {
-                foreach (var item in value)
+                foreach (var value in line)
                 {
-                    Console.Write($"{value.Key} ");
-                    Console.WriteLine($"[{item}]");
+                    Console.Write($"{line.Key} ");
+                    Console.WriteLine($"[{value}]");
                     count++;
                 }
             }
