@@ -12,17 +12,19 @@ namespace AirportDataSearch
         public void Show(IOrderedEnumerable<IGrouping<string, string>> res, 
             Stopwatch sw)
         {
+            int count = 0;
             foreach (var value in res)
             {
                 foreach (var item in value)
                 {
                     Console.Write($"{value.Key} ");
                     Console.WriteLine($"[{item}]");
+                    count++;
                 }
             }
 
-            Console.WriteLine($"Количество найденных строк: {res.Count()}");
-            Console.WriteLine($"Время затраченное на поиск: {sw.Elapsed.Milliseconds} мс.");
+            Console.WriteLine($"Количество найденных строк: {count}");
+            Console.WriteLine($"Время затраченное на поиск: {sw.Elapsed.Milliseconds} мс");
             Console.WriteLine();
         }
     }

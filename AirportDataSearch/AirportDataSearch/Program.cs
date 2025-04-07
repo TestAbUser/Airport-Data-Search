@@ -39,7 +39,7 @@ namespace AirportDataSearch
 
         string[] file = GetFileContent();
 
-       public void StartSearch(string? searchedString)
+       public void StartSearch(string searchedString)
         {
             while (searchedString != "!quit")
             {
@@ -53,10 +53,12 @@ namespace AirportDataSearch
             }
         }
 
-        private static string? GetSearchInput()
+        private static string GetSearchInput()
         {
             Console.WriteLine("Введите строку:");
-            return Console.ReadLine();
+            string? result = Console.ReadLine();
+            result ??= "";
+            return result;
         }
     }
 }
