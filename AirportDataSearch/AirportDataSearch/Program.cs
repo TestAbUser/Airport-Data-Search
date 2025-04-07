@@ -19,9 +19,9 @@ namespace AirportDataSearch
             Console.OutputEncoding = System.Text.Encoding.Unicode;
             
             //To Do: check that command line parameter not bigger than number of columns
-            _= int.TryParse(args[0], out int result);
-            _searcher!.ColumnIndex = result;
-           // Searcher searcher = new() { ColumnIndex = result};
+            int commandLineParameter= int.Parse(args[0]);
+            _searcher!.ColumnIndex = commandLineParameter;
+           // Searcher searcher = new() { ColumnIndex = commandLineParameter};
 
            // IFileSystem fileSystem = new FileSystem();
            // var lines = fileSystem.ReadLines(path);
