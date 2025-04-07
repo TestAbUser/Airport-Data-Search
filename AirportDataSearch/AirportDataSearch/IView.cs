@@ -9,7 +9,7 @@ namespace AirportDataSearch
 {
     public interface IView
     {
-        void Show(IOrderedEnumerable<IGrouping<string, string>> searchResult,
+        void Show(IEnumerable<IGrouping<string, string>> searchResult,
             Stopwatch sw);
     }
 }
