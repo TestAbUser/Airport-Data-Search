@@ -6,6 +6,6 @@ namespace AirportDataSearch
          int ColumnIndex { get; set; }
         IEnumerable<IGrouping<string, string>> Find(
             string searchString, 
-            ref IOrderedEnumerable<IGrouping<string, string>> fileContent);
+            ref IEnumerable<IGrouping<string, string>> fileContent);
     }
 }

@@ -30,7 +30,7 @@ namespace AirportDataSearch
             return _file!.ReadLines(path);
         }
 
-        IOrderedEnumerable<IGrouping<string, string>> file =
+        IEnumerable<IGrouping<string, string>> file =
             _searcher!.ParseFile(GetFileContent());
 
         public void StartSearch(string searchedString)
