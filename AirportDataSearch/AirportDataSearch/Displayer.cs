@@ -5,7 +5,7 @@ namespace AirportDataSearch
     public class Displayer : IView
     {
         public void Show(IEnumerable<IGrouping<string, string>> foundLines,
-            Stopwatch sw)
+            Stopwatch? sw=default)
         {
             int count = 0;
             foreach (var line in foundLines)
@@ -19,7 +19,7 @@ namespace AirportDataSearch
             }
 
             Console.WriteLine($"Количество найденных строк: {count}");
-            Console.WriteLine($"Время затраченное на поиск: {sw.Elapsed.Milliseconds} мс");
+            Console.WriteLine($"Время затраченное на поиск: {sw?.Elapsed.Milliseconds} мс");
             Console.WriteLine();
         }
     }
