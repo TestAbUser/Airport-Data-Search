@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AirportDataSearch
+﻿namespace AirportDataSearch
 {
     public class FileSystem: IFileSystem
     {
-        //private readonly string _path;
-
         public string[] ReadLines(string path)
         {
             ArgumentException.ThrowIfNullOrEmpty(path, nameof(path));

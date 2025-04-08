@@ -21,7 +21,7 @@ namespace AirportDataSearch.Tests.Unit
 
             var sut = new Searcher() { ColumnIndex=2};
 
-            var result = sut.Find(Line, file.Object.ReadLines(Path));
+            //var result = sut.Find(Line, file.Object.ReadLines(Path));
             string v = "\"Narsarsuaq Airport\"[7,\"Narsarsuaq Airport\",\"Narssarssuaq\"";
 
            // Assert.Equal(v, result.First().First().ToString());

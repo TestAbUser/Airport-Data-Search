@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
 namespace AirportDataSearch
 {
@@ -8,7 +7,7 @@ namespace AirportDataSearch
         public int ColumnIndex { get; set; }
         public IEnumerable<IGrouping<string, string>> Find(
             string searchString,
-            ref IOrderedEnumerable<IGrouping<string, string>> fileContent/*string[] fileContent*/)
+            ref IOrderedEnumerable<IGrouping<string, string>> fileContent)
         {
             var parsedFile = fileContent;
             var result = parsedFile.Where(

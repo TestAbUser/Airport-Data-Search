@@ -1,6 +1,4 @@
-﻿using AirportDataSearch;
-using System.Diagnostics;
-using System.IO;
+﻿using System.Diagnostics;
 
 namespace AirportDataSearch
 {
@@ -22,9 +20,7 @@ namespace AirportDataSearch
             int commandLineParameter = int.Parse(args[0]);
             _searcher!.ColumnIndex = commandLineParameter;
 
-
-            Program program = new Program();
-
+            Program program = new();
 
             program.StartSearch(GetSearchInput());
         }

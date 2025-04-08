@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 
 namespace AirportDataSearch
 {
     public class Displayer : IView
     {
-        public void Show(IEnumerable<IGrouping<string, string>> foundLines, 
+        public void Show(IEnumerable<IGrouping<string, string>> foundLines,
             Stopwatch sw)
         {
             int count = 0;
